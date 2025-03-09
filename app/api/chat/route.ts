@@ -1,4 +1,7 @@
+import { getCompanyProfileTool } from "@/app/lib/tools/getCompanyProfile";
+import { getBalanceSheetTool, getCashFlowStatementTool, getFinancialStatementsTool, getIncomeStatementTool } from "@/app/lib/tools/getFinancialStatements";
 import { getStockQuoteTool } from "@/app/lib/tools/getStockQuote";
+import { webSearchTool } from "@/app/lib/tools/webSearch";
 import { loggingMiddleware } from "@/app/lib/util/middleware";
 import { openai } from "@ai-sdk/openai";
 import { streamText, wrapLanguageModel } from "ai";
@@ -22,6 +25,12 @@ export async function POST(req: Request) {
     `,
     tools: {
       getStockQuote: getStockQuoteTool,
+      getCompanyProfile: getCompanyProfileTool,
+      getFinancialStatements: getFinancialStatementsTool,
+      getBalanceSheet: getBalanceSheetTool,
+      getIncomeStatement: getIncomeStatementTool,
+      getCashFlowStatement: getCashFlowStatementTool,
+      webSearch: webSearchTool,
     },
   });
     return response.toDataStreamResponse();
