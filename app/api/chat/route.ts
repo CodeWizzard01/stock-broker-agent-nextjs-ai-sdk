@@ -1,5 +1,7 @@
+import { createStockOrderTool } from "@/app/lib/tools/creatStockOrder";
 import { getCompanyProfileTool } from "@/app/lib/tools/getCompanyProfile";
 import { getBalanceSheetTool, getCashFlowStatementTool, getFinancialStatementsTool, getIncomeStatementTool } from "@/app/lib/tools/getFinancialStatements";
+import { getPortfolioPositionsTool } from "@/app/lib/tools/getPortfolioPositions";
 import { getStockQuoteTool } from "@/app/lib/tools/getStockQuote";
 import { webSearchTool } from "@/app/lib/tools/webSearch";
 import { loggingMiddleware } from "@/app/lib/util/middleware";
@@ -31,6 +33,8 @@ export async function POST(req: Request) {
       getIncomeStatement: getIncomeStatementTool,
       getCashFlowStatement: getCashFlowStatementTool,
       webSearch: webSearchTool,
+      createStockOrder: createStockOrderTool,
+      getPortfolioPositions: getPortfolioPositionsTool,
     },
   });
     return response.toDataStreamResponse();
