@@ -1,4 +1,4 @@
-import { createStockOrderTool } from "@/app/lib/tools/creatStockOrder";
+import { createStockOrderTool } from "@/app/lib/tools/createStockOrder";
 import { getCompanyProfileTool } from "@/app/lib/tools/getCompanyProfile";
 import { getBalanceSheetTool, getCashFlowStatementTool, getFinancialStatementsTool, getIncomeStatementTool } from "@/app/lib/tools/getFinancialStatements";
 import { getPortfolioPositionsTool } from "@/app/lib/tools/getPortfolioPositions";

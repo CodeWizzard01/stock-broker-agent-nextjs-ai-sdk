@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { stockOrders, OrderType } from "../../lib/db";
+import { stockOrders, OrderType } from "../db";
 
 
 export const createStockOrderTool = tool({
@@ -41,6 +41,24 @@ export const createStockOrderTool = tool({
         }
 
     }
+});
+
+
+export const createStockOrderToolWithConfirmation = tool({
+  description:
+    "Creates a new stock order (BUY or SELL) for a specified stock symbol with human confirmation",
+  parameters: z.object({
+    userId: z.string().describe("User ID making the order"),
+    symbol: z.string().describe("Stock symbol (e.g., AAPL, MSFT)"),
+    quantity: z
+      .number()
+      .int()
+      .positive()
+      .describe("Number of shares to buy or sell"),
+    price: z.number().positive().describe("Price per share"),
+    orderType: z.enum(["BUY", "SELL"]).describe("Type of order (BUY or SELL)"),
+  }),
+  // No execute function here - will require human confirmation
 });
 
 
