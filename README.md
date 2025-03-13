@@ -230,9 +230,6 @@ tools: {
 For a comprehensive guide on how this application was built, check out the accompanying blog post:
 [Building a Stock Broker Agent with Next.js, AI SDK, and OpenAI](./building-stock-management-agent.md)
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgements
 
